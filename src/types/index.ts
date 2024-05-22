@@ -36,7 +36,7 @@ export namespace Spotify {
         total: number
     }
 
-    type Track = {
+    export type Track = {
         album: Album
         artists: Array<Artist>
         available_markets: Array<CountryISO>
@@ -59,7 +59,7 @@ export namespace Spotify {
         is_local: boolean
     }
 
-    type ArtistShortInfo = {
+    export type ArtistShortInfo = {
         external_urls: ExternalUrls
         href: string
         id: string
@@ -68,7 +68,7 @@ export namespace Spotify {
         uri: string
     }
 
-    type Artist = ArtistShortInfo & {
+    export type Artist = ArtistShortInfo & {
         followers: Followers
         genres: Array<string>
         images: Array<Image>
@@ -86,7 +86,7 @@ export namespace Spotify {
         "compilation"
     }
 
-    type Album = {
+    export type Album = {
         album_type: AlbumType
         total_tracks: number
         available_markets: Array<CountryISO>

@@ -10,15 +10,15 @@
     MERCHANTABILITY or FITNESS FOR ANY PARTICULAR PURPOSE.
 */
 import { describe, it, expect } from 'vitest'
-//import { render, screen } from '@testing-library/react'
-//import { ProductName } from '@components/branding'
+import { render, screen } from '@testing-library/react'
+import { ProductName } from '@components/branding'
 
 describe('Branding', () => {
 
     it('renders name h1', async () => {
 
-        //render(<ProductName variant={'h1'} />)
-        //await screen.findByRole('heading')
-        //expect(screen.getByRole('heading').textContent).toBe('Incentrify')
+        render(<ProductName variant={'h1'} />)
+        await screen.findByRole('heading')
+        expect(screen.getByRole('heading').textContent).toBe('Incentrify!')
     })
 })

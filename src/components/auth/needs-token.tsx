@@ -9,4 +9,10 @@
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR ANY PARTICULAR PURPOSE.
 */
-export { Home } from './home'
+import { ReactNode } from 'react';
+import { Navigate } from 'react-router-dom'
+
+export const NeedsToken = ({ children }: { children: ReactNode }) => {
+    const hasToken = localStorage.getItem('access_token') !== null
+    return hasToken === true ? (children) : (<Navigate to={'/login'} replace />)
+}

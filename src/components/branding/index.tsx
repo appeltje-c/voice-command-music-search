@@ -9,14 +9,4 @@
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR ANY PARTICULAR PURPOSE.
 */
-import { Provider } from 'react-redux'
-import ReactDOM from 'react-dom/client'
-
-import { App } from './app'
-import { store } from '@state'
-
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <Provider store={store}>
-    <App />
-  </Provider>
-)
+export { ProductName } from './product-name'

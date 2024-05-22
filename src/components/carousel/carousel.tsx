@@ -15,9 +15,9 @@ import { useFrame } from "@react-three/fiber"
 import { Group, Object3DEventMap } from "three"
 import { easing } from "maath"
 
-import { ActiveCard } from "./active"
-import { Cards } from "./cards"
+import { ActiveCard } from "./hover"
 import { Spotify } from '@types'
+import { Cards } from "./cards"
 
 type CarouselProps = {
     data: Spotify.SearchResponse | undefined
@@ -38,7 +38,10 @@ export const Carousel = ({ data, ...props }: CarouselProps) => {
 
     return (
         <group ref={ref} {...props}>
-            <Cards data={data} onPointerOver={hover} onPointerOut={hover} />
+            {
+                data &&
+                <Cards data={data} onPointerOver={hover} onPointerOut={hover} />
+            }
             <ActiveCard hovered={hovered} data={data} />
         </group>
     )
