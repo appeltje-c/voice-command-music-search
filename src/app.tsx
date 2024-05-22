@@ -16,7 +16,7 @@ import theme from '@styles'
 import Login from './pages/login'
 import Search from './pages/search'
 import Callback from './pages/callback'
-import { NeedsToken } from '@components/auth/needs-token'
+import { NeedsToken } from '@components/auth'
 
 /**
  * Our App with Home page, the MUI theme provider 

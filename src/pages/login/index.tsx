@@ -9,11 +9,16 @@
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR ANY PARTICULAR PURPOSE.
 */
-import { Button, Grid, Stack } from "@mui/material"
+import { Button, Grid, Stack } from '@mui/material'
 
+import { getCodeVerifier } from '@util'
 import { ProductName } from '@components/branding'
-import { getCodeVerifier } from "../../util"
+import { spotifyAuthEndpoint, spotifyClientId, spotifyRedirectUrl, spotifyScope } from '@config'
 
+/**
+ * The login component creates the url and redirects to
+ * spotify auth
+ */
 const Login = () => {
 
     const spotifyAuth = async () => {
@@ -22,21 +27,21 @@ const Login = () => {
         const data = new TextEncoder().encode(code)
         const hashed = await crypto.subtle.digest('SHA-256', data)
 
-        const code_challenge_base64 = btoa(String.fromCharCode(...new Uint8Array(hashed)))
+        const codeChallengeBase64 = btoa(String.fromCharCode(...new Uint8Array(hashed)))
             .replace(/=/g, '')
             .replace(/\+/g, '-')
             .replace(/\//g, '_')
 
         localStorage.setItem('code_verifier', code)
 
-        const authUrl = new URL(import.meta.env.VITE_SPOTIFY_AUTH_ENDPOINT)
+        const authUrl = new URL(spotifyAuthEndpoint)
         const params = {
             response_type: 'code',
-            client_id: import.meta.env.VITE_SPOTIFY_CLIENT_ID,
-            scope: import.meta.env.VITE_SPOTIFY_SCOPE,
+            client_id: spotifyClientId,
+            scope: spotifyScope,
             code_challenge_method: 'S256',
-            code_challenge: code_challenge_base64,
-            redirect_uri: import.meta.env.VITE_SPOTIFY_REDIRECT_URL,
+            code_challenge: codeChallengeBase64,
+            redirect_uri: spotifyRedirectUrl,
         }
 
         authUrl.search = new URLSearchParams(params).toString()

@@ -9,7 +9,7 @@
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR ANY PARTICULAR PURPOSE.
 */
-import { Fragment } from "react"
+import { Fragment } from 'react'
 import { Billboard, Image, Text } from '@react-three/drei'
 
 import { Spotify } from '@types'

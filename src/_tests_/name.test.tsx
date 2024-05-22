@@ -11,6 +11,7 @@
 */
 import { describe, it, expect } from 'vitest'
 import { render, screen } from '@testing-library/react'
+
 import { ProductName } from '@components/branding'
 
 describe('Branding', () => {

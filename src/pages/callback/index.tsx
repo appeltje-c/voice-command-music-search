@@ -9,8 +9,10 @@
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR ANY PARTICULAR PURPOSE.
 */
-import { useEffect } from "react"
-import { useNavigate } from "react-router-dom"
+import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+
+import { spotifyClientId, spotifyRedirectUrl, spotifyTokenEndpoint } from '@config'
 
 const Callback = () => {
 
@@ -20,17 +22,17 @@ const Callback = () => {
 
     const getToken = async () => {
 
-        const code_verifier = localStorage.getItem('code_verifier')
+        const codeVerifier = localStorage.getItem('code_verifier')
 
         const params = {
-            client_id: import.meta.env.VITE_SPOTIFY_CLIENT_ID,
+            client_id: spotifyClientId,
             grant_type: 'authorization_code',
             code: code,
-            redirect_uri: import.meta.env.VITE_SPOTIFY_REDIRECT_URL,
-            code_verifier: code_verifier
+            redirect_uri: spotifyRedirectUrl,
+            code_verifier: codeVerifier
         }
 
-        const response = await fetch(import.meta.env.VITE_SPOTIFY_TOKEN_ENDPOINT, {
+        const response = await fetch(spotifyTokenEndpoint, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
@@ -39,7 +41,10 @@ const Callback = () => {
         })
 
         const tokens = await response.json()
-        localStorage.setItem('access_token', tokens.access_token)
+        // workaround to prevent strict mode overwriting the token 
+        if (localStorage.getItem('access_token') === null) {
+            localStorage.setItem('access_token', tokens.access_token)
+        }
 
         navigate('/search')
     }

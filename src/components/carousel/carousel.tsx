@@ -9,25 +9,30 @@
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR ANY PARTICULAR PURPOSE.
 */
-import { useRef, useState } from "react"
-import { useScroll } from "@react-three/drei"
-import { useFrame } from "@react-three/fiber"
-import { Group, Object3DEventMap } from "three"
-import { easing } from "maath"
+import { useRef, useState } from 'react'
+import { useScroll } from '@react-three/drei'
+import { useFrame } from '@react-three/fiber'
+import { Group, Object3DEventMap } from 'three'
+import { easing } from 'maath'
 
-import { ActiveCard } from "./hover"
 import { Spotify } from '@types'
-import { Cards } from "./cards"
+import { Cards } from './cards'
+import { ActiveCard } from './hover'
 
 type CarouselProps = {
     data: Spotify.SearchResponse | undefined
 }
 
+/**
+ * Carousel presentations of the search results
+ * as 'records' you can spin round and showing
+ * the hovered one lifted in the center
+ */
 export const Carousel = ({ data, ...props }: CarouselProps) => {
 
     const ref = useRef<Group<Object3DEventMap>>(null!)
     const scroll = useScroll()
-    const [hovered, hover] = useState<number | null>(null)
+    const [hovered, hover] = useState(null)
 
     useFrame((state, delta) => {
         ref.current.rotation.y = -scroll.offset * (Math.PI * 2)

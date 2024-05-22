@@ -9,4 +9,4 @@
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR ANY PARTICULAR PURPOSE.
 */
-export { SearchOptions } from './options'
+export { Options } from './options'
