@@ -10,9 +10,13 @@
     MERCHANTABILITY or FITNESS FOR ANY PARTICULAR PURPOSE.
 */
 import { ThemeProvider, CssBaseline } from '@mui/material'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 
 import theme from '@styles'
-import { Home } from '@components/home'
+import Login from './pages/login'
+import Search from './pages/search'
+import Callback from './pages/callback'
+import { NeedsToken } from '@components/auth/needs-token'
 
 /**
  * Our App with Home page, the MUI theme provider 
@@ -23,7 +27,14 @@ export const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline>
-        <Home />
+        <BrowserRouter>
+          <Routes>
+            <Route path={`/login`} element={<Login />} />
+            <Route path={`/callback`} element={<Callback />} />
+            <Route path={`/search`} element={<NeedsToken><Search /></NeedsToken>} />
+            <Route path="*" element={<Navigate to={'/search'} replace />} />
+          </Routes>
+        </BrowserRouter>
       </CssBaseline>
     </ThemeProvider>
   )

@@ -10,27 +10,29 @@
     MERCHANTABILITY or FITNESS FOR ANY PARTICULAR PURPOSE.
 */
 import { ToggleButton, ToggleButtonGroup } from "@mui/material"
-import { useState } from "react";
 
-export const SearchOptions = () => {
+type SearchOptionProps = {
+    type: string
+    setType: Function
+}
 
-    const [option, setOption] = useState('albums');
+export const SearchOptions = ({ type, setType }: SearchOptionProps) => {
 
     const handleChange = (_: React.MouseEvent<HTMLElement>, option: string,) => {
-        setOption(option)
+        setType(option)
     }
 
     return (
         <ToggleButtonGroup
             style={{ position: 'fixed', top: 50, left: '50%', transform: 'translate(-50%, -50%)', zIndex: 1 }}
             color="primary"
-            value={option}
+            value={type}
             exclusive
             onChange={handleChange}
             aria-label="search-option">
-            <ToggleButton value="albums">Albums</ToggleButton>
-            <ToggleButton value="songs">Songs</ToggleButton>
-            <ToggleButton value="artists">Artists</ToggleButton>
+            <ToggleButton value="album">Album</ToggleButton>
+            <ToggleButton value="track">Track</ToggleButton>
+            <ToggleButton value="artist">Artist</ToggleButton>
         </ToggleButtonGroup>
     )
 }

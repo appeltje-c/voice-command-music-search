@@ -16,16 +16,18 @@ import { Spotify } from '@types'
 const api = createApi({
     baseQuery: fetchBaseQuery({
         baseUrl: "https://api.spotify.com/v1/",
-        headers: {
-            Authorization: `Bearer ${import.meta.env.VITE_SPOTIFY_API_TOKEN}`
+        prepareHeaders: (headers) => {
+            const token = localStorage.getItem('access_token')
+            token && headers.set("authorization", `Bearer ${token}`)
+            return headers
         }
     }),
     endpoints: (build) => ({
-        spotifySearch: build.query<Spotify.SearchResponse, void>({
-            query() {
+        spotifySearch: build.query<Spotify.SearchResponse, { q: string, type: string }>({
+            query({ q, type }) {
                 return {
                     url: "search",
-                    params: { q: 'pink', type: 'album', limit: 50 }
+                    params: { q, type, limit: 50 }
                 }
             }
         })
