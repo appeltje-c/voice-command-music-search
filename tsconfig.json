@@ -23,8 +23,17 @@
     "noFallthroughCasesInSwitch": true,
     /* path aliases */
     "paths": {
+      "@api": [
+        "./src/services/api.ts"
+      ],
       "@components/*": [
         "./src/components/*"
+      ],
+      "@config": [
+        "./src/config.ts"
+      ],
+      "@pages": [
+        "./src/pages"
       ],
       "@state": [
         "./src/state"
@@ -37,6 +46,9 @@
       ],
       "@types": [
         "./src/types"
+      ],
+      "@util": [
+        "./src/util"
       ]
     }
   },

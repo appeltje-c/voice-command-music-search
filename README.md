@@ -21,8 +21,6 @@ Clone the repo
 git clone git@github.com:appeltje-c/incentrify.git
 ```
 
-🚨  To make use of the Spotify API you need to copy/rename .env.example to .env and add your Access Token. Check how to obtain an access token  one [here](https://developer.spotify.com/documentation/web-api/tutorials/getting-started#request-an-access-token)
-
 Then install and run
 
 ```shell
@@ -52,7 +50,8 @@ https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Visualizations_wi
 Speech
 https://github.com/mdn/dom-examples/tree/main/web-speech-api/speech-color-changer
 
-## to do
+## to do with more time
 
-- add album/artist/track option to search query
-- add voice control
+- Move spotify auth to redux
+- Implement Refresh token
+- Refactor Carousel 

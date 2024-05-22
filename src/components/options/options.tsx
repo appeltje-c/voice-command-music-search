@@ -9,14 +9,17 @@
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR ANY PARTICULAR PURPOSE.
 */
-import { ToggleButton, ToggleButtonGroup } from "@mui/material"
+import { ToggleButton, ToggleButtonGroup } from '@mui/material'
 
-type SearchOptionProps = {
+type OptionsProps = {
     type: string
     setType: Function
 }
 
-export const SearchOptions = ({ type, setType }: SearchOptionProps) => {
+/**
+ * Selection of search option Album, Artist, Track
+ */
+export const Options = ({ type, setType }: OptionsProps) => {
 
     const handleChange = (_: React.MouseEvent<HTMLElement>, option: string,) => {
         setType(option)
