@@ -24,7 +24,7 @@ git clone git@github.com:appeltje-c/incentrify.git
 Then install and run
 
 ```shell
-cd incentrify && yarn && yarn start
+cd incentrify && yarn && yarn dev
 ```
 
 An visit [http://localhost:5173](http://localhost:5173)
@@ -38,20 +38,8 @@ An visit [http://localhost:5173](http://localhost:5173)
 - [Three.js](https://threejs.org/)
 - [Fiber](https://docs.pmnd.rs/react-three-fiber/getting-started/introduction)
 
-## Resources
-
-Spotify API
-
-RTKQuery
-
-Voice oscillation
-https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Visualizations_with_Web_Audio_API#creating_a_waveformoscilloscope
-
-Speech
-https://github.com/mdn/dom-examples/tree/main/web-speech-api/speech-color-changer
-
-## to do with more time
+## To do with more time
 
 - Move spotify auth to redux
 - Implement Refresh token
-- Refactor Carousel 
+- Refactor Carousel
