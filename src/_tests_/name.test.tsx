@@ -1,5 +1,5 @@
 /*
-    Incentrify - Voice command music search
+    Voice command music search
     Author : Martijn Benjamin<martijn.teigeler@gmail.com>
 
     This program has been created as part of the 
@@ -20,6 +20,6 @@ describe('Branding', () => {
 
         render(<ProductName variant={'h1'} />)
         await screen.findByRole('heading')
-        expect(screen.getByRole('heading').textContent).toBe('Incentrify!')
+        expect(screen.getByRole('heading').textContent).toBe('Hi!')
     })
 })

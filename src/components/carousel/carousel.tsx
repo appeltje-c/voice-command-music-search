@@ -1,5 +1,5 @@
 /*
-    Incentrify - Voice command music search
+    Voice command music search
     Author : Martijn Benjamin<martijn.teigeler@gmail.com>
 
     This program has been created as part of the 
